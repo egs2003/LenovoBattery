@@ -107,7 +107,7 @@ impl Driver {
     pub fn set_mode(&self, target: Mode) -> Result<Mode, String> {
         let (name, sequence): (&str, [u32; 2]) = match target {
             Mode::Storage => ("Storage", [0x08, 0x03]),
-            Mode::Normal => ("Normal", [0x05, 0x08]),
+            Mode::Normal => ("Normal", [0x05, 0x00]),
             Mode::RapidCharge => return Err("RapidCharge kann nicht gesetzt werden.".into()),
         };
         for cmd in sequence {
